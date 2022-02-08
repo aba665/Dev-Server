@@ -5,13 +5,21 @@ class RepositoriesController {
     async index(req, res) {
         try {
             const { user_id } = req.params;
+            const { q } = req.query;
+
             const user = await User.findById(user_id);
 
             if(!user) {
                return res.status(404).json({msg: "temos um problema"})
             }
+            let query = {};
+
+            if(q){
+                query = { url: {$regex: q} }
+            }
             const repositories = await Repository.find({
-                UserId: user_id
+                UserId: user_id,
+                ...query
             });
             return res.json(repositories);
         } catch (error) {
@@ -32,7 +40,7 @@ class RepositoriesController {
             }
             const repository = await Repository.findOne({
                 userId: user_id,
-                nome
+                url
             })
             if(repository){
                 return res.status(422).json({msg: `Repository ${nome} already exists.`});

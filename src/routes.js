@@ -1,7 +1,5 @@
 import { Router } from "express";
 
-import HelloController from "./controllers/HelloController";
-
 import UserController from "./controllers/UserController";
 
 import RepositoriesController from "./controllers/RepositoryController";
