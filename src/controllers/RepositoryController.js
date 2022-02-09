@@ -15,10 +15,10 @@ class RepositoriesController {
             let query = {};
 
             if(q){
-                query = { url: {$regex: q} }
+                query = { url: { $regex: q } }
             }
             const repositories = await Repository.find({
-                UserId: user_id,
+                userId: user_id,
                 ...query
             });
             return res.json(repositories);
