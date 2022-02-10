@@ -15,6 +15,7 @@ const routes = Router();
 //Rotas Públicas 
 
 routes.post('/sessions', SessionsController.create);
+routes.post('/users', UserController.create);
 
 //Middlewares
 
@@ -24,10 +25,8 @@ routes.use(Auth);
 
 routes.get('/users', UserController.index);
 routes.get('/users/:id', UserController.show);
-routes.post('/users', UserController.create);
 routes.put('/users/:id', UserController.update);
 routes.delete('/users/:id', UserController.destroy);
-
 routes.get('/users/:user_id/repositories', RepositoriesController.index);
 routes.post('/users/:user_id/repositories', RepositoriesController.create);
 routes.delete('/users/:user_id/repositories/:id', RepositoriesController.destroy);
