@@ -14,8 +14,8 @@ const routes = Router();
 
 //Rotas Públicas 
 
-routes.post('/sessions', SessionsController.create);
 routes.post('/users', UserController.create);
+routes.post('/sessions', SessionsController.create);
 
 //Middlewares
 
