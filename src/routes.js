@@ -1,13 +1,13 @@
 
 import { Router } from "express";
 
-import UserController from "./controllers/UserController";
+import UserController from "./controllers/UserController.js";
 
-import RepositoriesController from "./controllers/RepositoryController";
+import RepositoriesController from "./controllers/RepositoryController.js";
  
-import Auth from "./middlewares/auth";
+import Auth from "./middlewares/auth.js";
 
-import SessionsController from './controllers/SessionsController';
+import SessionsController from './controllers/SessionsController.js';
 
 const routes = Router();
 
