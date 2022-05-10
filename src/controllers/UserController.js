@@ -71,7 +71,7 @@ class UserController {
             const { id } = req.params;
             const user = await User.findById(id);
             if(!user){
-                return res.satatus(404).json();
+                return res.status(404).json();
             }
             
             await User.deleteOne(user);
